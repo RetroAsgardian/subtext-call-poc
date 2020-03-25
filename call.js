@@ -9,7 +9,8 @@ peer.on('call', function(call) {
 	navigator.mediaDevices.getUserMedia({audio: true, video: true}).then(function(myStream) {
 		call.answer(myStream);
 		call.on('stream', function(theirStream) {
-			document.getElementById('callVideo').srcObject = theirStream;
+			document.querySelector('#callVideo').src = URL.createObjectURL(theirStream);
+			document.querySelector('#callVideo').play();
 		});
 	});
 });
@@ -20,7 +21,8 @@ function initiateCall() {
 		call = peer.call(target, myStream);
 		document.getElementById("myId").innerHTML = "My ID: " + peer.id + "[CALL OUT: " + target + "]";
 		call.on('stream', function(theirStream) {
-			document.getElementById('callVideo').srcObject = theirStream;
+			document.querySelector('#callVideo').src = URL.createObjectURL(theirStream);
+			document.querySelector('#callVideo').play();
 		});
 	});
 }
