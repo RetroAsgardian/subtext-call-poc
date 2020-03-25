@@ -11,8 +11,24 @@
 		<br />
 		
 		<video id="callVideo"></video>
+		<br />
+		<video id="myVideo" muted></video>
 		
 		<script src="https://unpkg.com/peerjs@1.0.0/dist/peerjs.min.js"></script>
 		<script src="call.js"></script>
+		
+		<style>
+			video {
+				background: black;
+			}
+			#callVideo {
+				width: 640px;
+				height: 480px;
+			}
+			#myVideo {
+				width: 320px;
+				height: 240px;
+			}
+		</style>
 	</body>
 </html>
