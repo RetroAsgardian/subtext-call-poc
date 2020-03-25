@@ -6,21 +6,21 @@ peer.on('open', function(id) {
 
 peer.on('call', function(call) {
 	document.getElementById("myId").innerHTML = "My ID: " + peer.id + "[CALL IN: " + call.peer + "]";
-	navigator.mediaDevices.getUserMedia({audio: true}).then(function(myStream) {
+	navigator.mediaDevices.getUserMedia({audio: true, video: true}).then(function(myStream) {
 		call.answer(myStream);
 		call.on('stream', function(theirStream) {
-			document.getElementById('callAudio').srcObject = theirStream;
+			document.getElementById('callVideo').srcObject = theirStream;
 		});
 	});
 });
 
 function initiateCall() {
 	var target = document.getElementById("callTargetId").attributes["value"];
-	navigator.mediaDevices.getUserMedia({audio: true}).then(function(myStream) {
+	navigator.mediaDevices.getUserMedia({audio: true, video: true}).then(function(myStream) {
 		call = peer.call(target, myStream);
 		document.getElementById("myId").innerHTML = "My ID: " + peer.id + "[CALL OUT: " + target + "]";
 		call.on('stream', function(theirStream) {
-			document.getElementById('callAudio').srcObject = theirStream;
+			document.getElementById('callVideo').srcObject = theirStream;
 		});
 	});
 }
