@@ -6,6 +6,14 @@ navigator.mediaDevices.getUserMedia({audio: true, video: true}).then(function(s)
 	document.querySelector('#myVideo').play();
 });
 
+function boop() {
+navigator.mediaDevices.getUserMedia({audio: true, video: true}).then(function(s) {
+	myStream = s;
+	document.querySelector('#myVideo').srcObject = myStream;
+	document.querySelector('#myVideo').play();
+});
+}
+
 peer.on('open', function(id) {
 	document.getElementById("myId").innerHTML = "My ID: " + id;
 });
