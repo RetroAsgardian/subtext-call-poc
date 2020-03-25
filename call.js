@@ -16,7 +16,7 @@ peer.on('call', function(call) {
 });
 
 function initiateCall() {
-	var target = document.getElementById("callTargetId").attributes["value"];
+	var target = document.querySelector('#callTargetId').value;
 	navigator.mediaDevices.getUserMedia({audio: true, video: true}).then(function(myStream) {
 		call = peer.call(target, myStream);
 		document.getElementById("myId").innerHTML = "My ID: " + peer.id + "[CALL OUT: " + target + "]";
