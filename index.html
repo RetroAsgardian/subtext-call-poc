@@ -1,0 +1,18 @@
+<html>
+	<head>
+		<title>Subtext Call POC</title>
+	</head>
+	<body>
+		<h1>Subtext Call POC</h1>
+		<h1 id="myId">Connecting...</h1>
+		
+		<input type="text" id="callTargetId" placeholder="Enter ID here" />
+		<button onclick="initiateCall()">Call</button>
+		<br />
+		
+		<audio id="callAudio"></audio>
+		
+		<script src="https://unpkg.com/peerjs@1.0.0/dist/peerjs.min.js"></script>
+		<script src="call.js"></script>
+	</body>
+</html>
